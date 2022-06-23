@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFormik } from 'formik'
 
-export default function ViewMedicine() {
 
+export default function ViewMedicine() {
   const initialValues = {
     Medname: '',
     Medbcode: ''
@@ -17,12 +17,10 @@ export default function ViewMedicine() {
     if (!values.Medname) {
       errors.Medname = 'Medname required';
     }
-    else{
-      errors.Medname = 'Medname ok'
-    }
     if (!values.Medbcode) {
       errors.Medbcode = 'Medbcode required';
     }
+    return errors
   }
 
   const formik = useFormik({
