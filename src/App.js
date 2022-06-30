@@ -10,6 +10,10 @@ import AddMedicine from './Components/Admin/AddMedicine';
 import ViewMedicine from './Components/Admin/ViewMedicine';
 import SalesMedicine from './Components/Admin/SalesMedicine';
 import DeleteMedicine from './Components/Admin/DeleteMedicine';
+import OrderMed from './Components/Customer/OrderMed'
+import TakeSubs from './Components/Customer/TakeSubs';
+import CustHome from './Components/Customer/CustHome';
+import MyCart from './Components/Customer/MyCart';
 
 function App() {
   return (
@@ -25,6 +29,10 @@ function App() {
             <Route path='/viewmed' element={<ViewMedicine />}></Route>
             <Route path='/delmed' element={<DeleteMedicine />}></Route>
             <Route path='/salesmed' element={<SalesMedicine />}></Route>
+            <Route path='/custhome' element={<CustHome />}></Route>
+            <Route path='/orderMed' element={<OrderMed />}></Route>
+            <Route path='/takesubs' element={<TakeSubs />}></Route>
+            <Route path='/myCart' element={<MyCart />}></Route>
           </Routes>
         </Router>
         

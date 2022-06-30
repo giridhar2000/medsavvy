@@ -19,13 +19,13 @@ export default function Login() {
     if (!values.username) {
       errors.username = 'username required';
     } else if (values.username.length > 15) {
-      errors.username = 'Must be 15 characters or less';
+      errors.username = 'Username is incorrect';
     }
   
     if (!values.password) {
       errors.password = 'password required';
     } else if (values.password.length < 8) {
-      errors.password = 'Must be 8 characters or more';
+      errors.password = 'Password is incorrect';
     }
     return errors;
   };
@@ -52,7 +52,7 @@ export default function Login() {
             </div>
 
             <div class="mb-3">
-              <input type="text" class="form-control" id="Username" placeholder="User Name*" name='username' onChange={formik.handleChange}
+              <input type="text" class="form-control" id="Username" placeholder="Username*" name='username' onChange={formik.handleChange}
                 value={formik.values.username}></input>
                 {formik.errors.username ? <div className='error'>{formik.errors.username}</div> : null}
             </div>

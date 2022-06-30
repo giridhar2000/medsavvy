@@ -5,7 +5,7 @@ export default class AdminHome extends Component {
   render() {
     return (
       <div>
-        AdminHome
+        PharmacistHome
         <Link to='/addmed'>
             <button type="submit" id='btn-color' class="btn btn-color px-5 mb-5 w-100">Add Medicine</button>
         </Link>
