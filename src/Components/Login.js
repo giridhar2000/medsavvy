@@ -66,7 +66,7 @@ export default function Login() {
 
             <div class="text-center"><button type="submit" id='btn-color' class="btn btn-color px-5 mb-5 w-100">Login</button></div>
             <div id="emailHelp" class="form-text text-center mb-5 text-dark">Not Registered? 
-            <a id='signup' href='/signup' class="text-dark fw-bold">Create an Account</a>
+            <a id='signup' href='/signup' class="text-dark fw-bold"> Create an Account</a>
             </div>
           </form>
         </div>

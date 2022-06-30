@@ -1,64 +1,32 @@
 import React from 'react'
-import { useFormik } from 'formik'
+import { Link } from 'react-router-dom'
 
-
-export default function orderMed() {
-  const initialValues = {
-    Medname: '',
-    Quantity: ''
-  }
-
-  const onSubmit = values => {
-    // alert(JSON.stringify(values, null, 2));
-  }
-
-  const validate = values => {
-    const errors = {}
-    if (!values.Medname) {
-      errors.Medname = 'Medname required';
+export default function OrderMed() {
+  const Med = {
+  data: [
+    {
+      "id": "1",
+      "name": "Dolo",
+      "quantity":"40",
+      "ExpiryDate": "JUN-2025",
+    },
+    {
+      "id": "2",
+      "name": "Sitracin",
+      "quantity":"36",
+      "ExpiryDate": "FEB-2028",
+    },
+    {
+      "id": "3",
+      "name": "Paracitamol",
+      "quantity":"34",
+      "ExpiryDate": "AUG-2024",
     }
-    if (!values.Quantity) {
-      errors.Quantity = 'Quantity required';
-    }
-    return errors
-  }
- 
-  const formik = useFormik({
-    initialValues,
-    onSubmit,
-    validate
-  })
+  ]
+}
+        
   return (
     <div className='container'>
-        <div  class="row customer">
-        <div class="col-md-6 offset-md-3">
-          <div class="card my-5">
-  
-            <form onSubmit={formik.handleSubmit} class="card-body cardbody-color p-lg-5">
-  
-              <div style={{marginBottom: '5vh'}} class="text-center">
-                  <h2 style={{color: '#2dafa9'}}>Order Medicine</h2>
-              </div>
-
-              <div class="mb-3">
-                <input type="text" class="form-control" id="Medname" name="Medname" placeholder="Medicine Name" onChange={formik.handleChange}
-                value={formik.values.Medname}></input>
-                {formik.errors.Medname ? <div className='error'>{formik.errors.Medname}</div> : null}
-              </div>
-
-              <div class="mb-3">
-                <input type="text" class="form-control" id="Quantity" name="Quantity" placeholder="Quantity" onChange={formik.handleChange}
-                value={formik.values.Quantity}></input>
-                {formik.errors.Quantity ? <div className='error'>{formik.errors.Quantity}</div> : null}
-              </div>
-              <div class="text-center"><button type="submit" id='btn-color' class="btn btn-color px-5 mb-5 w-100">Search</button></div>
-              <div class="text-center"><button type="cancel" id='btn-color' class="btn btn-color px-5 mb-5 w-100">Cancel</button></div>
-
-            </form>
-          </div>
-        </div>
-
-      </div>
       <table class='table table-hover table-dark'>
         <thead>
           <tr>
@@ -68,28 +36,21 @@ export default function orderMed() {
             <th scope='col'>Expiry Date</th>
           </tr>
         </thead>
+        {Med.data?.map((item, index) => (
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-              <td>Dolo</td>
-              <td>40</td>
-              <td>JUN-2025</td>
+          <tr key={index}>
+            <td>{item.id}</td>
+            <td>{item.name}</td>
+            <td>{item.quantity}</td>
+            <td>{item.ExpiryDate}</td>
+            <td><button type="submit" id='btn-color' class="btn btn-color px-5 mb-5 w-100">Add to cart</button></td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-              <td>Sitracin</td>
-              <td>36</td>
-              <td>FEB-2028</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Paracitamol</td>
-            <td>34</td>
-            <td>AUG-2024</td>
-          </tr>
-          
         </tbody>
+        ))}
       </table>
-      </div>
+      <Link to='/myCart'>
+            <button type="submit" id='btn-color' class="btn btn-color px-5 mb-5 w-100">My Cart</button>
+        </Link>
+    </div>
   )
 }
