@@ -13,6 +13,7 @@ import DeleteMedicine from './Components/Admin/DeleteMedicine';
 import OrderMed from './Components/Customer/OrderMed'
 import CustHome from './Components/Customer/CustHome';
 import MyCart from './Components/Customer/MyCart';
+import Users from './Components/Users';
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
             <Route path='/salesmed' element={<SalesMedicine />}></Route>
             <Route path='/custhome' element={<CustHome />}></Route>
             <Route path='/orderMed' element={<OrderMed />}></Route>
-            {/* <Route path='/takesubs' element={<TakeSubs />}></Route> */}
+            <Route path='/users' element={<Users />}></Route>
             <Route path='/myCart' element={<MyCart />}></Route>
           </Routes>
         </Router>
